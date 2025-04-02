@@ -1,12 +1,23 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { LicensePlate } from '../license-plate';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  inject,
+  Input,
+  Output
+} from '@angular/core';
+import {LicensePlate} from '../license-plate';
 
 @Component({
   selector: 'app-license-plate',
+  standalone: true,
   templateUrl: './license-plate.component.html',
   styleUrls: ['./license-plate.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LicensePlateComponent {
+
   @Input()
   plate!: LicensePlate;
 
@@ -19,4 +30,5 @@ export class LicensePlateComponent {
   buttonClicked() {
     this.onButtonClick.emit(this.plate);
   }
+
 }

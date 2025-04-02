@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LicensePlateComponent } from './license-plate.component';
+import { CurrencySwitcherComponent } from './currency-switcher.component';
 
-xdescribe('LicensePlateComponent', () => {
-  let component: LicensePlateComponent;
-  let fixture: ComponentFixture<LicensePlateComponent>;
+describe('CurrencySwitcherComponent', () => {
+  let component: CurrencySwitcherComponent;
+  let fixture: ComponentFixture<CurrencySwitcherComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LicensePlateComponent ]
+      declarations: [ CurrencySwitcherComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LicensePlateComponent);
+    fixture = TestBed.createComponent(CurrencySwitcherComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

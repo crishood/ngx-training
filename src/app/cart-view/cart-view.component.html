@@ -1,20 +1,18 @@
 <app-jumbotron title="My Cart" description="Your current cart contents:"></app-jumbotron>
 
 <div class="container">
-  @if (cartContents?.length === 0) {
+  @if(cartContents?.length === 0) {
     <div class="alert alert-info" role="alert">Your cart is empty</div>
   }
+
   <div class="row" >
 
-    @for (plate of cartContents; track plate._id) {
-      <app-license-plate [plate]="plate"
-        buttonText="Remove from cart &times;"
-        class="col-md-4" style="margin-top: 40px">
-      </app-license-plate>
+    @for(plate of cartContents; track plate._id) {
+      <app-license-plate [plate]="plate" buttonText="Remove" class="col-md-4" />
     }
 
   </div>
 
   <hr>
 
-  </div>
+</div>

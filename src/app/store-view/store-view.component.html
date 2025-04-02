@@ -1,0 +1,21 @@
+<app-jumbotron title="Welcome to our store"
+               description="Browse our collection of license plates"></app-jumbotron>
+
+<div class="container">
+  <div class="row" >
+    @for(plate of plates(); track plate._id) {
+      <app-license-plate buttonText="Add to cart" [plate]="plate" class="col-4"
+         (onButtonClick)="addToCart($event)">
+      </app-license-plate>
+    }
+  </div>
+</div>
+
+<app-dialog [(isOpen)]="showDialog" title="Plate added to cart" >
+  <div body>
+    Thanks for shopping with us!
+  </div>
+  <div footer>
+    <button (click)="showDialog = false">OK</button>
+  </div>
+</app-dialog>
