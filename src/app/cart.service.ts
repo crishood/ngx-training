@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
-import {LicensePlate} from './license-plate';
+import {LicensePlate, LicensePlateId} from './license-plate';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -16,6 +16,10 @@ export class CartService {
 
   addToCart(plate: LicensePlate): Observable<unknown> {
     return this.http.put('http://localhost:8000/cart/' + plate._id, null);
+  }
+
+  addToCartById(plateId: LicensePlateId): Observable<unknown> {
+    return this.http.put('http://localhost:8000/cart/' + plateId, null);
   }
 
   removeFromCart(plate: LicensePlate): Observable<unknown> {

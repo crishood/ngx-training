@@ -6,10 +6,11 @@ import {LicensePlateComponent} from '../license-plate/license-plate.component';
 import {CartService} from '../cart.service';
 import {DialogComponent} from '../dialog/dialog.component';
 import {toSignal} from '@angular/core/rxjs-interop';
+import {HighlightDirective} from '../highlight.directive';
 
 @Component({
     selector: 'app-store-view',
-  imports: [JumbotronComponent, LicensePlateComponent, DialogComponent],
+  imports: [JumbotronComponent, LicensePlateComponent, DialogComponent, HighlightDirective],
     templateUrl: './store-view.component.html',
     styleUrl: './store-view.component.css'
 })
