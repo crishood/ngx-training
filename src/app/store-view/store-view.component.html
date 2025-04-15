@@ -1,13 +1,16 @@
-<app-jumbotron title="Welcome to our store"
-               description="Browse our collection of license plates"></app-jumbotron>
+@let plates = plates$ | async;
+@let totalCount = plates?.length;
+<app-jumbotron title="Welcome to our store" #jumbo
+               description="Browse our collection of {{totalCount}} license plates"></app-jumbotron>
 
 <div class="container">
   <div class="row" >
-    @for(plate of plates(); track plate._id) {
-      <app-license-plate buttonText="Add to cart" [plate]="plate" class="col-4"
-         (onButtonClick)="addToCart($event)" appHighlight="somethingElse">
-      </app-license-plate>
-    }
+        @for(plate of plates; track plate._id) {
+          <app-license-plate buttonText="Add to cart" [plate]="plate" class="col-4"
+             (onButtonClick)="addToCart($event)" appHighlight="somethingElse">
+          </app-license-plate>
+        }
+
   </div>
 </div>
 

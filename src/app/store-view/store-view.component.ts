@@ -7,10 +7,12 @@ import {CartService} from '../cart.service';
 import {DialogComponent} from '../dialog/dialog.component';
 import {toSignal} from '@angular/core/rxjs-interop';
 import {HighlightDirective} from '../highlight.directive';
+import {AsyncPipe} from '@angular/common';
+import {tap} from 'rxjs/operators';
 
 @Component({
     selector: 'app-store-view',
-  imports: [JumbotronComponent, LicensePlateComponent, DialogComponent, HighlightDirective],
+  imports: [JumbotronComponent, LicensePlateComponent, DialogComponent, HighlightDirective, AsyncPipe],
     templateUrl: './store-view.component.html',
     styleUrl: './store-view.component.css'
 })
@@ -18,7 +20,7 @@ export class StoreViewComponent {
 
   http = inject(HttpClient);
   cartService = inject(CartService);
-  plates = toSignal(this.http.get<LicensePlate[]>("https://lp-store-server.vercel.app/data"));
+  plates$ = this.http.get<LicensePlate[]>("https://lp-store-server.vercel.app/data");
   // httpResource("https://lp-store-server.vercel.app/data")  experimental
 
   showDialog = false;
